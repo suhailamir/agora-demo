@@ -19,7 +19,8 @@ const babelLoader = {
 const cssLoader = {
   test: /\.css$/,
   use: [
-    'style-loader', 'css-loader','sass-loader', 'resolve-url', 
+    styleLoader,
+    'css-loader',
   ],
 }
 
