@@ -1,6 +1,6 @@
-const path = require("path");
-const loaders = require("./loaders");
-const plugins = require("./plugins");
+const path = require('path')
+const loaders = require('./loaders')
+const plugins = require('./plugins')
 
 const NODE_ENV = process.env.NODE_ENV
 
@@ -8,16 +8,16 @@ const distPath = NODE_ENV == 'development' ? '../dist' : '../build'
 
 module.exports = {
   entry: {
-    index: "./src/index.js",
+    index: './src/index.js',
   },
-  devtool: "inline-source-map",
+  devtool: 'inline-source-map',
   module: loaders,
   plugins,
   resolve: {
-    extensions: [ ".js" ],
+    extensions: ['.js', '.jsx', '.scss','.css']
   },
   output: {
-    filename: "[name].[hash].js",
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, distPath),
   },
   optimization: {
@@ -29,9 +29,9 @@ module.exports = {
       errors: true,
     },
     hot: true,
-    contentBase: path.join(__dirname, "./"),
+    contentBase: path.join(__dirname, './'),
     compress: true,
     progress: true,
     open: true
   },
-};
+}
