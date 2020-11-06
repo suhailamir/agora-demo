@@ -18,9 +18,10 @@ const babelLoader = {
 
 const cssLoader = {
   test: /\.css$/,
-  use : ['style', 'css', 'resolve-url']
+  use: [
+    'style', 'css', 'resolve-url', 'sass?sourceMap'
+  ],
 }
-
 
 const fileLoader = {
   test: /\.(png|svg|jpg|gif|m4a|mp3)$/,
