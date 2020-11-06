@@ -15,7 +15,8 @@
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./scripts --mode development",
     "build": "cross-env NODE_ENV=production webpack --config ./scripts --mode production",
     "lint-fix": "eslint --fix src/ ",
-    "start": "node server.js"
+    "start": "node server.js",
+    "heroku-postbuild": "echo Skip build on Heroku"
   },
   "dependencies": {
     "agora-rtc-sdk": "^2.8.0",
@@ -46,5 +47,6 @@
     "webpack-dev-server": "^3.2.1"
   },
   "author": "agora",
-  "license": "ISC"
+  "license": "ISC",
+  "heroku-run-build-script": true
 }
