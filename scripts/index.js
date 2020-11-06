@@ -4,7 +4,7 @@ const plugins = require('./plugins')
 
 const NODE_ENV = process.env.NODE_ENV
 
-const distPath = NODE_ENV == 'development' ? '../dist' : '../pages'
+const distPath = NODE_ENV == 'development' ? '../dist' : '../docs'
 
 module.exports = {
   entry: {
