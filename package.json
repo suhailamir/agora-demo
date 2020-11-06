@@ -14,9 +14,7 @@
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config ./scripts --mode development",
     "build": "cross-env NODE_ENV=production webpack --config ./scripts --mode production",
-    "lint-fix": "eslint --fix src/ ",
-    "start": "node server.js",
-    "heroku-postbuild": "cross-env NODE_ENV=production webpack --config ./scripts --mode production"
+    "lint-fix": "eslint --fix src/ "
   },
   "dependencies": {
     "agora-rtc-sdk": "^2.8.0",
@@ -39,14 +37,11 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.5.0",
-    "node-sass": "^5.0.0",
-    "sass-loader": "^10.0.5",
     "style-loader": "^0.23.1",
     "webpack": "^4.29.6",
     "webpack-cli": "^3.3.0",
     "webpack-dev-server": "^3.2.1"
   },
   "author": "agora",
-  "license": "ISC",
-  "heroku-run-build-script": true
+  "license": "ISC"
 }
