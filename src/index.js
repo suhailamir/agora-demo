@@ -208,7 +208,7 @@ $(() => {
 
       // Get the tx devices (microphone/camera) to use
       console.info('WebRTC starting getUserMedia.')
-      navigator.mediaDevices.getUserMedia({ audio: true, video: true })
+      navigator.mediaDevices.getUserMedia({ audio: true, video: false })
         .then(this.onGotMedia.bind(this))
         .catch((error) => { console.error('WebRTC getUserMedia error:', error.toString()) })
     }
@@ -322,7 +322,7 @@ $(() => {
 
     webrtc = new WebRTC()
     webrtc.preview = document.getElementById('previewVideo')
-    webrtc.remoteVideo = document.getElementById('remoteVideo')
+    webrtc.remoteVideo = document.getElementById('avatarVideo')
     webrtc.dest = destFld.value
     webrtc.start()
   })

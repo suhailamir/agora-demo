@@ -182,8 +182,24 @@ export default class RTCClient {
   _createMediaVideoStream(callback) {
     // Checking here
     this.releaseStream('_mediaVideoStream')
+    const videoDOM = $('#sample_video')[0]    
+    const videoStream = videoDOM.captureStream(60)
+    this._mediaVideoStream = AgoraRTC.createStream({
+      audio: true,
+      video: true,
+      videoSource: videoStream.getVideoTracks()[0],
+      audioSource: videoStream.getAudioTracks()[0],
+    })
+    this._mediaVideoStream.init(() => {
+      callback(this._mediaVideoStream.getVideoTrack(), this._mediaVideoStream.getAudioTrack())
+    })
+  }
+
+  _createAvatarStream(callback) {
+    // Checking here
+    this.releaseStream('_mediaVideoStream')
     // const videoDOM = $('#sample_video')[0]
-    const videoDOM = $('#remoteVideo')[0]
+    const videoDOM = $('#avatarVideo')[0]
 
     
     
@@ -200,8 +216,8 @@ export default class RTCClient {
   }
 
   replaceTrack(data, callback) {
-    const types = [ 'agora_rtc', 'canvas', 'video' ]
-    const domIds = [ 'local_stream', 'local_canvas', 'local_video' ]
+    const types = [ 'agora_rtc', 'canvas', 'video', 'avatar' ]
+    const domIds = [ 'local_stream', 'local_canvas', 'local_video','avatarVideo' ]
     const curerntIdx = this._currentStreamIdx
     const currentDomId = domIds[curerntIdx]
     const currentType = types[curerntIdx]
@@ -231,6 +247,9 @@ export default class RTCClient {
     } else if (currentType == 'video') {
       this._createMediaVideoStream(next)
     } else if (currentType == 'canvas') {
+      this._createCanvasVideoStream(next)
+    }
+    else if (currentType == 'avatar') {
       this._createCanvasVideoStream(next)
     }
   }
