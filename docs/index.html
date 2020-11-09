@@ -7,9 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>Agora Custom VideoSource</title>
       <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-
-
-<link href="index.a6f07d8807718005336f.css" rel="stylesheet"></head>
+<link href="main.86296f69106c0111a52c.css" rel="stylesheet"></head>
 <body class="agora-theme">
   <div class="navbar-fixed">
     <nav class="agora-navbar">
@@ -157,10 +155,11 @@
             <div id="local_video" class="video-placeholder card hide" style="margin: 0">
               <video id="sample_video" src="./assets/sample.mp4" class="video-view" controls loop></video>
             </div>
+             <div id="avatar_video" class="video-placeholder card hide" style="margin: 0">
+            </div>
             <div id="local_stream" class="video-placeholder card hide" style="margin: 0"></div>
             <div id="local_video_info" class="video-profile hide"></div>
             <div id="video_autoplay_local" class="autoplay-fallback hide"></div>
-            <div id="avatar_video" class="autoplay-fallback hide"></div>
 
           </div>
         </div>
@@ -171,7 +170,7 @@
         <tr>
             <th colspan="2">
                 Destination:&nbsp;
-                <input list="destinationList" size=150 id="dest"  />
+                <input list="destinationList" size=150 id="dest" value="sock:audio-ip=18.130.137.38,audio-port=7373,audio-codec=Opus-48,video-ip=18.130.137.38,video-port=7374,video-codec=H.264-1,session-id=1252bb84-33f7-41c8-bace-4c79464943bd,user-id=1248597359431337527"  />
                 <datalist id="destinationList">
                     <option value="ivr:">
                     <option value="loopback:">
@@ -180,7 +179,7 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <input type="button" value="Start Call" id="startBtn"  />
                 &nbsp;&nbsp;
-                <input type="button" value="End Call" id="endBtn" onClick="endCall();" disabled />
+                <input type="button" value="End Call" id="endBtn"  disabled />
             </th>
         </tr>
         <tr>
@@ -188,8 +187,10 @@
             <th align="center">Local Video</th>
         </tr>
         <tr>
-            <td><video id="remoteVideo" width="640" height="480" autoplay muted></video></td>
+            <td><video id="avatarVideo" width="640" height="480"  muted autoplay></video></td>
+
             <td><video id="previewVideo" width="640" height="480"  muted></video></td>
+
         </tr>
     </table>
     </div>
@@ -211,5 +212,5 @@
       </div>
     </div>
     <!-- notice for developer -->
-<script type="text/javascript" src="index.a6f07d8807718005336f.js"></script></body>
+<script type="text/javascript" src="main.86296f69106c0111a52c.js"></script></body>
 </html>
