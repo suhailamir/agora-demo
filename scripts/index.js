@@ -7,9 +7,12 @@ const NODE_ENV = process.env.NODE_ENV
 const distPath = NODE_ENV == 'development' ? '../dist' : '../docs'
 
 module.exports = {
-  entry: {
-    index: './src/index.js',
-  },
+  entry: 
+    [ 
+      './src/index.js',
+      // './src/connectToAvatar.js'
+    ],
+  
   devtool: 'inline-source-map',
   module: loaders,
   plugins,

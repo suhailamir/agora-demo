@@ -241,6 +241,8 @@ export default class RTCClient {
       }
       if (callback) callback()
     }
+    console.log('current type: ',currentType)
+
 
     if (currentType == 'agora_rtc') {
       this._createAgoraRTCStream(data, next)
@@ -250,7 +252,7 @@ export default class RTCClient {
       this._createCanvasVideoStream(next)
     }
     else if (currentType == 'avatar') {
-      this._createCanvasVideoStream(next)
+      this._createAvatarStream(next)
     }
   }
 

@@ -328,7 +328,7 @@ $(() => {
   })
 
 
-  function endCall() {
+  $('#endBtn').on('click', function (e) {
     startBtn.disabled = false
     endBtn.disabled = true
 
@@ -336,5 +336,5 @@ $(() => {
       webrtc.stop()
       webrtc = null
     }
-  }
+  })
 })
